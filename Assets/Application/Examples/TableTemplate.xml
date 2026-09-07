@@ -1,0 +1,73 @@
+<Template name="Table">
+  <Element>
+    <!-- basis:
+          - point - для элемента на основе точки
+          - segment - для элемента на основе линии
+          - profile - для элемента на основе контура -->
+    <Location basis="point">
+      <!-- type:
+          - coordinate - положение задается координатами в локальной системе родителя
+          - direction - положение задается направлением (до пересечения, или на расстоянии)-->
+      <Position type="coordinate">
+        <Point2D x="1.8" y="3.2"/>
+      </Position>
+      <Rotation>
+        <!-- Quaternion для поворота в локальных координатах родителя-->
+        <Quaternion x="0" y="1" z="0" w="0"/>
+      </Rotation>
+    </Location>
+    <Dependencies>
+      <!-- Расстояние "value" в "direction" (behind, front, right, left, above, below)
+        до элемента какого "type" если тип не задан, то от родителя-->
+      <Constraint direction="behind" type="Wall" value="2"/>
+    </Dependencies>
+    <Geometry>
+      <Extrusion bottom="0.61" top="0.65">
+        <Profile>
+          <Loop>
+            <!-- Добавить варианты описания прямоугольника, круга по двум точкам и т.д.-->
+            <!-- CheckPoint задает вершину и стиль -->
+            <CheckPoint x="-0.6" y="-0.3"/>
+            <CheckPoint x="0.6" y="-0.3"/>
+            <CheckPoint x="0.6" y="0.3"/>
+            <CheckPoint x="-0.6" y="0.3"/>
+          </Loop>
+        </Profile>
+      </Extrusion>
+      <Extrusion bottom="0" top="0.61">
+        <Profile>
+          <Loop>
+            <CheckPoint x="-0.5" y="-0.2"/>
+            <CheckPoint x="-0.44" y="-0.2"/>
+            <CheckPoint x="-0.44" y="-0.14"/>
+            <CheckPoint x="-0.5" y="-0.14"/>
+          </Loop>
+        </Profile>
+        <Profile>
+          <Loop>
+            <CheckPoint x="0.44" y="-0.2"/>
+            <CheckPoint x="0.5" y="-0.2"/>
+            <CheckPoint x="0.5" y="-0.14"/>
+            <CheckPoint x="0.44" y="-0.14"/>
+          </Loop>
+        </Profile>
+        <Profile>
+          <Loop>
+            <CheckPoint x="0.44" y="0.14"/>
+            <CheckPoint x="0.5" y="0.14"/>
+            <CheckPoint x="0.5" y="0.2"/>
+            <CheckPoint x="0.44" y="0.2"/>
+          </Loop>
+        </Profile>
+        <Profile>
+          <Loop>
+            <CheckPoint x="-0.5" y="0.14"/>
+            <CheckPoint x="-0.44" y="0.14"/>
+            <CheckPoint x="-0.44" y="0.2"/>
+            <CheckPoint x="-0.5" y="0.2"/>
+          </Loop>
+        </Profile>
+      </Extrusion>
+    </Geometry>
+  </Element>
+</Template>
