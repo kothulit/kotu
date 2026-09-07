@@ -1,10 +1,10 @@
 using VContainer;
 using VContainer.Unity;
 
-public class AppLifetimeScope : LifetimeScope
+public class GameLifetimeScope : LifetimeScope
 {
     protected override void Configure(IContainerBuilder builder)
     {
-        builder.RegisterEntryPoint<AppStartup>();
+        builder.RegisterEntryPoint<GameStartUp>();
     }
 }

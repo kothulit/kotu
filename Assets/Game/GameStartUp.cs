@@ -1,7 +1,7 @@
 using UnityEngine;
 using VContainer.Unity;
 
-public class AppStartup : IStartable
+public class GameStartUp : IStartable
 {
     public void Start()
     {
